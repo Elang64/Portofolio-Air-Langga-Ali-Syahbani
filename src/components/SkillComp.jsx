@@ -1,17 +1,17 @@
-import {
-    FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython,
-    FaDatabase, FaGitAlt, FaFigma,
+import { 
+    FaHtml5, FaCss3Alt, FaGitAlt, FaFigma 
 } from "react-icons/fa";
-import { FaFlutter } from "react-icons/fa6";
-import { SiTailwindcss, SiMongodb, SiPostgresql, SiDart, SiLaravel, SiFlutter, SiExpress } from "react-icons/si";
-
+import { FaFlutter, FaReact } from "react-icons/fa6";
+import { 
+    SiTailwindcss, SiMongodb, SiPostgresql, SiDart, SiLaravel, SiExpress 
+} from "react-icons/si";
 
 function SkillComp() {
     const skills = [
         { id: 1, name: "HTML5", icon: <FaHtml5 className="text-orange-500" /> },
         { id: 2, name: "CSS3", icon: <FaCss3Alt className="text-blue-500" /> },
         { id: 3, name: "Flutter", icon: <FaFlutter className="text-blue-400" /> },
-        { id: 4, name: "React", icon: <FaReact className="text-cyan-400" /> },
+        { id: 4, name: "React", icon: <FaReact className="text-cyan-400" /> }, 
         { id: 5, name: "Tailwind", icon: <SiTailwindcss className="text-teal-400" /> },
         { id: 6, name: "Express", icon: <SiExpress className="text-black" /> },
         { id: 7, name: "Dart", icon: <SiDart className="text-blue-900" /> },
@@ -22,12 +22,10 @@ function SkillComp() {
         { id: 12, name: "Laravel", icon: <SiLaravel className="text-red-600" /> },
     ];
 
-    // Persiapkan data untuk baris kedua (dibalik urutannya)
     const reversedSkills = [...skills].reverse();
 
     return (
         <section className="overflow-hidden">
-
             <div className="relative py-20">
 
                 {/* Efek Cahaya Latar */}
@@ -43,23 +41,20 @@ function SkillComp() {
 
                 <h2 className="text-5xl p-4 md:text-6xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400 mb-4 reveal reveal-up">
                     Keahlian Saya
-                </h2>
+                </h2> 
 
                 <div className="relative mx-auto overflow-hidden py-4">
-
-                    {/* Efek Gradasi (Fade) di Kiri & Kanan (ditambah pointer-events-none agar efek hover di bawahnya tetap jalan) */}
+                    {/* Efek Gradasi (Fade) */}
                     <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-gray-950 to-transparent pointer-events-none"></div>
                     <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-gray-950 to-transparent pointer-events-none"></div>
 
-
                     {/* ======== BARIS 1 (Geser ke Kiri) ======== */}
-                    {/* Tambahan class 'w-max' agar isi flex tidak terhimpit */}
                     <div className="flex w-max mb-5 infinite-scroll-left reveal reveal-left">
                         {/* Set Pertama */}
                         <div className="flex gap-5 pr-5">
-                            {skills.map((skill, index) => (
+                            {skills.map((skill) => (
                                 <div
-                                    key={`row1-set1-${skill.id}-${index}`}
+                                    key={`row1-origin-${skill.id}`}
                                     className="flex items-center gap-3 bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 rounded-xl px-6 py-3.5 min-w-fit hover:border-blue-500/50 hover:shadow-[0_0_20px] hover:shadow-blue-500/20 transition-all duration-300 group cursor-default"
                                 >
                                     <span className="text-2xl group-hover:scale-110 transition-transform">
@@ -73,9 +68,9 @@ function SkillComp() {
                         </div>
                         {/* Set Kedua (Duplikat) */}
                         <div className="flex gap-5 pr-5">
-                            {skills.map((skill, index) => (
+                            {skills.map((skill) => (
                                 <div
-                                    key={`row1-set2-${skill.id}-${index}`}
+                                    key={`row1-clone-${skill.id}`}
                                     className="flex items-center gap-3 bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 rounded-xl px-6 py-3.5 min-w-fit hover:border-blue-500/50 hover:shadow-[0_0_20px] hover:shadow-blue-500/20 transition-all duration-300 group cursor-default"
                                 >
                                     <span className="text-2xl group-hover:scale-110 transition-transform">
@@ -89,14 +84,13 @@ function SkillComp() {
                         </div>
                     </div>
 
-
                     {/* ======== BARIS 2 (Geser ke Kanan) ======== */}
                     <div className="flex w-max infinite-scroll-right reveal reveal-right">
                         {/* Set Pertama */}
                         <div className="flex gap-5 pr-5">
-                            {reversedSkills.map((skill, index) => (
+                            {reversedSkills.map((skill) => (
                                 <div
-                                    key={`row2-set1-${skill.id}-${index}`}
+                                    key={`row2-origin-${skill.id}`}
                                     className="flex items-center gap-3 bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 rounded-xl px-6 py-3.5 min-w-fit hover:border-cyan-500/50 hover:shadow-[0_0_20px] hover:shadow-cyan-500/20 transition-all duration-300 group cursor-default"
                                 >
                                     <span className="text-2xl group-hover:scale-110 transition-transform">
@@ -110,9 +104,9 @@ function SkillComp() {
                         </div>
                         {/* Set Kedua (Duplikat) */}
                         <div className="flex gap-5 pr-5">
-                            {reversedSkills.map((skill, index) => (
+                            {reversedSkills.map((skill) => (
                                 <div
-                                    key={`row2-set2-${skill.id}-${index}`}
+                                    key={`row2-clone-${skill.id}`}
                                     className="flex items-center gap-3 bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 rounded-xl px-6 py-3.5 min-w-fit hover:border-cyan-500/50 hover:shadow-[0_0_20px] hover:shadow-cyan-500/20 transition-all duration-300 group cursor-default"
                                 >
                                     <span className="text-2xl group-hover:scale-110 transition-transform">
@@ -147,7 +141,7 @@ function SkillComp() {
                     0% { transform: translateX(-50%); }
                     100% { transform: translateX(0); }
                 }
-            `}</style>
+                `}</style>
             </div>
         </section>
     );

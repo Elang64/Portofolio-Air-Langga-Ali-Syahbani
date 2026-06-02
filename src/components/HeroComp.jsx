@@ -1,5 +1,5 @@
-import { IoMdDownload } from "react-icons/io";
 import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaDownload } from "react-icons/fa";
+import air_langga from '../assets/profileair.png';
 
 function HeroComp() {
     const waText = encodeURIComponent("Halo, saya melihat portofolio Anda. Saya tertarik untuk berdiskusi lebih lanjut mengenai peluang kerja sama atau proyek yang sedang kami kembangkan.");
@@ -8,7 +8,7 @@ function HeroComp() {
 
             <div className="absolute inset-0 bg-gradient-to-b from-blue-900/40 to-transparent -z-10 rounded-b-[3rem]"></div>
 
-            <section className="relative  mx-12 px-12 sm:px-8 lg:px-12 py-15 md:py-12">
+            <section className="relative px-12 sm:px-8 lg:px-12 py-15 md:py-12">
                 <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 lg:gap-12 my-10">
                     <div className="text-center md:text-left order-2 md:order-1 flex-1 reveal reveal-left">
                         <h1 className="text-xl sm:text-xl md:text-4xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
@@ -41,7 +41,7 @@ function HeroComp() {
                                 </a>
                             </button>
                             <button className="w-20 h-20 flex items-center justify-center rounded-full transition">
-                                <a href href={`https://wa.me/6285810115955?text=${waText}`} target="_blank" rel="noopener noreferrer">
+                                <a href={`https://wa.me/6285810115955?text=${waText}`} target="_blank" rel="noopener noreferrer">
                                     <FaWhatsapp className="text-4xl" />
                                 </a>
                             </button>
@@ -51,7 +51,7 @@ function HeroComp() {
 
                     <div className="order-1 md:order-2 flex-shrink-0 reveal reveal-right delay-100">
                         <img
-                            src="src/assets/profileair.png"
+                            src={air_langga}
                             alt="Foto profile Air Langga Ali Syahbani"
                             className="w-35 h-35 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[300px] lg:h-[300px] xl:w-[400px] xl:h-[400px] object-cover rounded-full md:rounded-2xl border-2 border-blue-500/30 shadow-[0_0_40px] shadow-blue-500/20"
                         />

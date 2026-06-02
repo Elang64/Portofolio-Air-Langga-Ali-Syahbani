@@ -49,7 +49,7 @@ const ContactComp = () => {
     const waText = encodeURIComponent("Halo, saya melihat portofolio Anda. Saya tertarik untuk berdiskusi lebih lanjut mengenai peluang kerja sama atau proyek yang sedang kami kembangkan.");
 
     return (
-        <section className=" px-  z-10 font-sans">
+        <section className="z-10 font-sans">
             <div className="relative py-16">
 
                 <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">

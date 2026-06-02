@@ -1,7 +1,7 @@
 "use client"; 
 
 import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa'; 
+import { FaBars, FaXmark } from 'react-icons/fa6'; // Menggunakan fa6 untuk stabilitas FaXmark dan FaBars
 
 function NavbarComp() {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,50 +11,51 @@ function NavbarComp() {
     };
 
     return (
-       <nav className="backdrop-blur-3xl fixed w-full z-50 text-white bg-black/10 border-b border-blue-500/50 font-sans">
-        
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <nav className="backdrop-blur-3xl fixed top-0 left-0 w-full z-50 text-white bg-black/10 border-b border-blue-500/50 font-sans">
             
-         
-            <div className="flex items-center gap-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">
-                Portofolio.
-            </div>
-            
-          
-            <div className="hidden md:flex gap-8 font-semibold">
-                <a href="#home" className="hover:text-blue-500 transition-colors">Home</a>
-                <a href="#project" className="hover:text-blue-500 transition-colors">Project</a>
-                <a href="#skill" className="hover:text-blue-500 transition-colors">Skill</a>
-                <a href="#certificate" className="hover:text-blue-500 transition-colors">Certificate</a>
-                <a href="#contactme" className="hover:text-blue-500 transition-colors">Contact Me</a>
-            </div>
-
-   
-            <div className="md:hidden flex items-center">
-                <button 
-                    onClick={toggleMenu} 
-                    className="text-gray-300 hover:text-cyan-400 focus:outline-none transition-colors"
-                >
-                    {isOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
-                </button>
-            </div>
-           
-        </div>
-
-    
-        {isOpen && (
-            <div className="md:hidden absolute top-full left-0 w-full bg-gray-900/95 backdrop-blur-xl border-b border-blue-500/30 shadow-2xl">
-                <div className="flex flex-col px-6 py-4 space-y-4 font-medium text-center">
-                    <a href="#home" onClick={toggleMenu} className="block py-2 text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all">Home</a>
-                    <a href="#project" onClick={toggleMenu} className="block py-2 text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all">Project</a>
-                    <a href="#skill" onClick={toggleMenu} className="block py-2 text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all">Skill</a>
-                    <a href="#certificate" onClick={toggleMenu} className="block py-2 text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all">Certificate</a>
-                    <a href="#contactme" onClick={toggleMenu} className="block py-2 text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all">Contact Me</a>
+            <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                
+                {/* Logo / Nama */}
+                <div className="flex items-center gap-2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">
+                    Portofolio.
                 </div>
-            </div>
-        )}
+                
+                {/* Menu Navigasi Desktop */}
+                <div className="hidden md:flex gap-8 font-semibold">
+                    <a href="#home" className="hover:text-blue-400 transition-colors duration-300">Home</a>
+                    <a href="#project" className="hover:text-blue-400 transition-colors duration-300">Project</a>
+                    <a href="#skill" className="hover:text-blue-400 transition-colors duration-300">Skill</a>
+                    <a href="#certificate" className="hover:text-blue-400 transition-colors duration-300">Certificate</a>
+                    <a href="#contactme" className="hover:text-blue-400 transition-colors duration-300">Contact Me</a>
+                </div>
 
-    </nav>
+                {/* Tombol Hamburger Mobile */}
+                <div className="md:hidden flex items-center">
+                    <button 
+                        onClick={toggleMenu} 
+                        className="text-gray-300 hover:text-cyan-400 focus:outline-none transition-colors duration-300"
+                        aria-label="Toggle menu"
+                    >
+                        {isOpen ? <FaXmark className="text-2xl" /> : <FaBars className="text-2xl" />}
+                    </button>
+                </div>
+               
+            </div>
+
+            {/* Menu Navigasi Mobile */}
+            {isOpen && (
+                <div className="md:hidden absolute top-full left-0 w-full bg-gray-900/95 backdrop-blur-xl border-b border-blue-500/30 shadow-2xl animate-fade-in">
+                    <div className="flex flex-col px-6 py-4 space-y-4 font-medium text-center">
+                        <a href="#home" onClick={toggleMenu} className="block py-2 text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all duration-300">Home</a>
+                        <a href="#project" onClick={toggleMenu} className="block py-2 text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all duration-300">Project</a>
+                        <a href="#skill" onClick={toggleMenu} className="block py-2 text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all duration-300">Skill</a>
+                        <a href="#certificate" onClick={toggleMenu} className="block py-2 text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all duration-300">Certificate</a>
+                        <a href="#contactme" onClick={toggleMenu} className="block py-2 text-gray-300 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all duration-300">Contact Me</a>
+                    </div>
+                </div>
+            )}
+
+        </nav>
     );
 }
 

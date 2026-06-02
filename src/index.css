@@ -1062,47 +1062,27 @@ img {
     }
 }
 
-/* ============================
-   9. SCROLL REVEAL EFFECTS
-   ============================ */
+/* ===== SCROLL REVEAL EFFECTS ===== */
 .reveal {
     opacity: 0;
     transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: transform, opacity;
 }
+.reveal-up { transform: translateY(45px); }
+.reveal-down { transform: translateY(-45px); }
+.reveal-left { transform: translateX(-45px); }
+.reveal-right { transform: translateX(45px); }
+.reveal-scale { transform: scale(0.94); }
 
-.reveal-up {
-    transform: translateY(45px);
-}
-
-.reveal-down {
-    transform: translateY(-45px);
-}
-
-.reveal-left {
-    transform: translateX(-45px);
-}
-
-.reveal-right {
-    transform: translateX(45px);
-}
-
-.reveal-scale {
-    transform: scale(0.94);
-}
-
-/* State when active (visible in viewport) */
 .reveal.active {
     opacity: 1;
     transform: translate(0) scale(1);
 }
 
-/* Stagger delay classes for staggered animation elements */
+/* Stagger delays */
 .delay-75 { transition-delay: 75ms; }
 .delay-100 { transition-delay: 100ms; }
 .delay-150 { transition-delay: 150ms; }
 .delay-200 { transition-delay: 200ms; }
-.delay-250 { transition-delay: 250ms; }
 .delay-300 { transition-delay: 300ms; }
-.delay-400 { transition-delay: 400ms; }
 .delay-500 { transition-delay: 500ms; }
