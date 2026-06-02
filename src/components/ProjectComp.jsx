@@ -92,7 +92,7 @@ function ProjectComp() {
                                 <div className={`w-full flex flex-col ${isEven ? "md:order-2 md:pl-8" : "md:order-1 md:pr-8 md:items-end md:text-right"}`}>
                                     <h3 className="text-2xl font-bold text-white mb-3">
                                         {item.title} <br />
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">
+                                        <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-cyan-400">
                                             {item.highlight}
                                         </span>
                                     </h3>

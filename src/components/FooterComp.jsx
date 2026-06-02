@@ -7,7 +7,7 @@ function FooterComp() {
     return (
         <footer className="text-white py-14 relative border-t border-gray-800/50">
             {/* Efek Gradasi Latar Belakang */}
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent -z-10"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-blue-900/40 to-transparent -z-10"></div>
 
             <div className="max-w-6xl mx-auto px-6 relative z-10">
                 <div className="flex flex-col items-center justify-center text-center">
