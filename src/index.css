@@ -1,0 +1,1108 @@
+@import 'tailwindcss';
+
+
+body { 
+    font-family: 'Mulish', system-ui, -apple-system, sans-serif; 
+    background: black; 
+}
+
+html {
+       scroll-behavior: smooth;
+}
+
+* {
+    font-family: 'Mulish', system-ui, -apple-system, sans-serif; 
+}
+
+:root {
+    --bg-color: #1f242d;
+    --second-color: #22d3ee;
+    --main-color:  #3b82f6;
+    --white-color: #fff;
+    --disable-color: #fff3;
+    --gradient-color: linear-gradient(120deg,#3b82f6,#22d3ee);
+}
+
+.text-gradient { 
+    background: linear-gradient(135deg, #3b82f6 0%, #1e3a5f 100%); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+
+.card-hover:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 20px 30px -10px rgba(0,0,0,0.08); 
+    transition: all 0.25s ease; 
+}
+
+.infinite-scroll { 
+    animation: scroll 40s linear infinite; 
+}
+
+h3  {
+  font-size: 44px;
+   font-weight: 700; 
+   line-height: 1.2em; 
+   letter-spacing: 0em;
+}
+
+@keyframes scroll { 
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(-50%); } 
+}
+
+.pause-animation:hover { 
+    animation-play-state: paused; 
+}
+
+.benefit-line {
+    background: linear-gradient(120deg,#3b82f6,#22d3ee);
+}
+
+@keyframes show-content {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+/* ===== SPAN ANIMASI DENGAN GRADIEN BIRU ===== */
+h1 span {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .100px;
+    /* Ganti stroke jadi gradien biru */
+    -webkit-text-stroke-color: transparent;
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+@keyframes display-text {
+    25%,
+    100% {
+        display: none;
+    }
+}
+
+h1 span::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid;
+    /* Ganti border-color jadi gradien (pakai solid fallback) */
+    border-color: #3b82f6;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+    
+    /* === TEKS DENGAN GRADIEN BIRU === */
+    background: linear-gradient(120deg, #3b82f6, #22d3ee);
+    -webkit-background-clip: text;
+    
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes fill-text {
+    10%,
+    100% {
+        width: 0;
+    }
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+button  {
+    display: flex;
+    align-items: center;
+}
+
+button a{
+    display: inline-block;
+    padding: 12px 12px;
+    background: var(--gradient-color);
+    border: 2px solid var(--main-color);
+    border-radius: 100%;
+    box-shadow: 0 0 10px var(--second-color);
+    font-size: 16px;
+    color: #1f242d;
+    font-weight: 500;
+    transition: .5s;
+}
+
+button a:hover {
+    background: transparent;
+    color: var(--main-color);
+    box-shadow: none;
+}
+
+.sci {
+    display: inline-flex;
+    border: 2px solid var(--main-color);
+    font-size: 20px;
+    color: var(--main-color);
+    margin: 0 8px;
+}
+
+.sci:hover {
+    background: var(--main-color);
+    color: #1f242d;
+    box-shadow: 0 0 10px var(--main-color);
+}
+
+/* ============================================
+   GLOBAL RESPONSIVE UTILITIES
+   ============================================ */
+
+/* Pastikan tidak ada horizontal scroll */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Semua gambar responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Box sizing global */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - ALL BREAKPOINTS
+   Urutan: desktop-first (besar ke kecil)
+   ============================================ */
+
+/* ============================
+   1. LARGE DESKTOP (max-width: 1440px)
+   ============================ */
+@media (max-width: 1440px) {
+    /* HERO */
+    section.relative {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+
+    /* PROJECT TIMELINE */
+    .timeline-image-left {
+        padding-left: 1.5rem;
+    }
+}
+
+/* ============================
+   2. SMALL DESKTOP (max-width: 1280px)
+   ============================ */
+@media (max-width: 1280px) {
+    /* TYPOGRAPHY */
+    h3 {
+        font-size: 36px;
+    }
+
+    /* HERO */
+    section.relative {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    /* PROJECT - kurangi padding gambar */
+    .timeline-image-left {
+        padding-left: 1rem;
+    }
+
+    /* CONTACT - form padding */
+    .max-w-6xl {
+        max-width: 100%;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* ============================
+   3. TABLET LANDSCAPE (max-width: 1024px)
+   ============================ */
+@media (max-width: 1024px) {
+    /* TYPOGRAPHY */
+    h1 {
+        font-size: 3rem !important;
+    }
+    h2 {
+        font-size: 2.5rem !important;
+    }
+    h3 {
+        font-size: 30px;
+    }
+
+    /* NAVBAR */
+    nav .max-w-7xl {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    /* HERO SECTION */
+    section.relative {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 4rem;
+    }
+
+    /* HERO - social buttons kecilkan */
+    button {
+        width: auto;
+        height: auto;
+    }
+
+    /* PROJECT TIMELINE */
+    .timeline-image-left {
+        padding-left: 0.5rem;
+    }
+
+    /* PROJECT - text description */
+    .timeline-text p,
+    .timeline-item p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    /* SKILL SECTION */
+    .infinite-scroll-left,
+    .infinite-scroll-right {
+        gap: 0.75rem;
+    }
+
+    /* CERTIFICATE - grid margin */
+    .grid {
+        margin-left: 1.5rem !important;
+        margin-right: 1.5rem !important;
+    }
+
+    /* CONTACT */
+    .max-w-6xl {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        gap: 2rem;
+    }
+
+    /* FOOTER */
+    footer .max-w-6xl {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+/* ============================
+   4. TABLET PORTRAIT (max-width: 768px)
+   ============================ */
+@media (max-width: 768px) {
+    /* TYPOGRAPHY */
+    h1 {
+        font-size: 2.25rem !important;
+        line-height: 1.2;
+    }
+    h2 {
+        font-size: 2rem !important;
+    }
+    h3 {
+        font-size: 24px;
+        line-height: 1.3em;
+    }
+    p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav .text-3xl {
+        font-size: 1.5rem !important;
+    }
+
+    /* HERO SECTION */
+    section.relative {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 3.5rem;
+    }
+
+    /* HERO - social icon buttons */
+    button a {
+        padding: 10px 10px;
+        font-size: 14px;
+    }
+
+    /* PROJECT TIMELINE - sembunyikan garis & lingkaran */
+    .timeline-line,
+    .timeline-circle {
+        display: none !important;
+    }
+
+    /* PROJECT - hapus padding samping gambar */
+    .timeline-image-left {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* PROJECT - timeline items */
+    .timeline-item {
+        margin-bottom: 2.5rem !important;
+        gap: 1.5rem !important;
+    }
+
+    /* PROJECT - text di bawah gambar */
+    .timeline-item .text-left {
+        padding-left: 0 !important;
+    }
+
+    /* PROJECT - title lebih kecil */
+    .timeline-text h3,
+    .timeline-item h3 {
+        font-size: 1.375rem;
+    }
+
+    /* PROJECT - description */
+    .timeline-item p {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+
+    /* SKILL SECTION */
+    .infinite-scroll-left,
+    .infinite-scroll-right {
+        gap: 0.5rem;
+    }
+
+    /* SKILL - pill items */
+    .infinite-scroll-left > div,
+    .infinite-scroll-right > div {
+        padding: 0.625rem 1rem !important;
+    }
+
+    /* CERTIFICATE - grid */
+    .grid {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+        gap: 1rem !important;
+    }
+
+    /* CERTIFICATE - modal */
+    .fixed.inset-0 {
+        padding: 1rem !important;
+    }
+
+    /* CERTIFICATE - card padding */
+    .group.bg-gray-800\/50 {
+        padding: 1rem !important;
+    }
+
+    /* CONTACT - form container */
+    .max-w-6xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* CONTACT - info icons */
+    .w-14 {
+        width: 3rem !important;
+        height: 3rem !important;
+    }
+
+    /* FOOTER - social buttons center */
+    .sci {
+        font-size: 16px;
+        margin: 0 5px;
+    }
+
+    /* FOOTER - social button row */
+    footer .flex-wrap {
+        justify-content: center !important;
+    }
+
+    /* SECTION DIVIDERS - kurangi spacing */
+    .flex-1.h-px {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+    }
+}
+
+/* ============================
+   5. MOBILE LARGE (max-width: 640px)
+   ============================ */
+@media (max-width: 640px) {
+    /* TYPOGRAPHY */
+    h1 {
+        font-size: 1.875rem !important;
+        line-height: 1.2;
+    }
+    h2 {
+        font-size: 1.75rem !important;
+    }
+    h3 {
+        font-size: 22px;
+        line-height: 1.3em;
+    }
+    p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav .text-3xl {
+        font-size: 1.35rem !important;
+    }
+    nav .max-w-7xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    /* HERO SECTION */
+    section.relative {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        padding-top: 3rem;
+    }
+
+    /* HERO - social buttons */
+    button a {
+        padding: 8px 8px;
+        font-size: 12px;
+    }
+
+    /* HERO - social icon row - gap lebih kecil */
+    .flex-wrap.gap-5 {
+        gap: 0.75rem !important;
+    }
+
+    /* HERO - social button container */
+    .w-20 {
+        width: 3.5rem !important;
+        height: 3.5rem !important;
+    }
+
+    /* HERO - social icons */
+    .text-4xl {
+        font-size: 1.75rem !important;
+    }
+
+    /* PROJECT - section margin */
+    .my-15 {
+        margin-top: 2rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    /* PROJECT - section title */
+    .project-title {
+        font-size: 1.75rem !important;
+    }
+
+    /* PROJECT - timeline item spacing */
+    .timeline-item {
+        margin-bottom: 2rem !important;
+    }
+
+    /* PROJECT - gambar height */
+    .timeline-image {
+        height: 12rem !important;
+    }
+
+    /* SKILL SECTION - judul */
+    .text-5xl {
+        font-size: 2rem !important;
+    }
+
+    /* SKILL - infinite scroll speed mobile */
+    .infinite-scroll-left {
+        animation-duration: 20s !important;
+    }
+    .infinite-scroll-right {
+        animation-duration: 25s !important;
+    }
+
+    /* CERTIFICATE - grid 1 kolom */
+    .grid {
+        margin-left: 0.75rem !important;
+        margin-right: 0.75rem !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    /* CERTIFICATE - card info */
+    .group h3 {
+        font-size: 1rem !important;
+    }
+
+    /* CERTIFICATE - modal */
+    .max-w-lg {
+        max-width: calc(100vw - 2rem) !important;
+    }
+
+    /* CONTACT - form padding */
+    .bg-gray-800\/50 {
+        padding: 1.5rem !important;
+    }
+
+    /* CONTACT - heading */
+    .text-6xl {
+        font-size: 2rem !important;
+    }
+
+    /* CONTACT - info text */
+    .tracking-wide {
+        font-size: 0.875rem !important;
+    }
+
+    /* FOOTER - social buttons */
+    footer .w-20 {
+        width: 3rem !important;
+        height: 3rem !important;
+    }
+
+    /* FOOTER - text */
+    footer p {
+        font-size: 0.8rem;
+    }
+
+    /* SECTION DIVIDERS */
+    .flex-1.h-px {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+/* ============================
+   6. MOBILE SMALL (max-width: 430px)
+   ============================ */
+@media (max-width: 430px) {
+    /* TYPOGRAPHY */
+    h1 {
+        font-size: 1.5rem !important;
+        margin-top: 1.5rem;
+        padding-top: 2.5rem;
+        line-height: 1.2;
+    }
+    h2 {
+        font-size: 1.375rem !important;
+    }
+    h3 {
+        font-size: 18px;
+        line-height: 1.3em;
+    }
+    p {
+        font-size: 12px;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+
+    /* NAVBAR */
+    nav .text-3xl {
+        font-size: 1.15rem !important;
+    }
+    nav .max-w-7xl {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+    }
+    /* Navbar mobile dropdown */
+    nav .flex-col {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    nav .flex-col a {
+        font-size: 0.875rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* HERO SECTION */
+    section.relative {
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 2rem;
+    }
+
+    /* HERO - text animation typing */
+    h1 span::before {
+        font-size: inherit;
+    }
+
+    /* HERO - description */
+    .max-w-2xl {
+        font-size: 0.75rem !important;
+        line-height: 1.5;
+    }
+
+    /* HERO - social buttons */
+    button a {
+        padding: 6px 6px;
+        font-size: 10px;
+    }
+
+    /* HERO - social icons lebih kecil */
+    .w-20 {
+        width: 2.75rem !important;
+        height: 2.75rem !important;
+    }
+    .text-4xl {
+        font-size: 1.375rem !important;
+    }
+
+    /* HERO - profile image */
+    .w-35 {
+        width: 7rem !important;
+        height: 7rem !important;
+    }
+
+    /* PROJECT - section spacing */
+    .my-15 {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* PROJECT - section title margin */
+    .mb-16 {
+        margin-bottom: 2rem !important;
+    }
+
+    /* PROJECT - badge */
+    .project-badge {
+        font-size: 0.7rem !important;
+        padding: 0.25rem 0.75rem !important;
+    }
+
+    /* PROJECT - timeline items */
+    .timeline-item {
+        gap: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* PROJECT - gambar */
+    .timeline-image {
+        height: 10rem !important;
+        border-radius: 0.75rem !important;
+    }
+
+    /* PROJECT - text desc */
+    .timeline-item p {
+        font-size: 0.75rem !important;
+    }
+
+    /* SKILL - section padding */
+    .py-20 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    /* SKILL - title */
+    .text-5xl {
+        font-size: 1.5rem !important;
+    }
+
+    /* SKILL - badge */
+    .tracking-\[\.25rem\] {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.15rem !important;
+    }
+
+    /* SKILL - infinite scroll gap */
+    .infinite-scroll-left,
+    .infinite-scroll-right {
+        gap: 0.375rem !important;
+    }
+
+    /* SKILL - pill items */
+    .infinite-scroll-left > div,
+    .infinite-scroll-right > div {
+        padding: 0.4rem 0.625rem !important;
+        border-radius: 0.5rem !important;
+    }
+
+    /* SKILL - pill text */
+    .infinite-scroll-left > div span,
+    .infinite-scroll-right > div span {
+        font-size: 0.7rem !important;
+    }
+
+    /* SKILL - pill icon */
+    .infinite-scroll-left > div .text-2xl,
+    .infinite-scroll-right > div .text-2xl {
+        font-size: 1rem !important;
+    }
+
+    /* SKILL - fade edges */
+    .w-16 {
+        width: 2rem !important;
+    }
+
+    /* CERTIFICATE - section padding */
+    .py-16 {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+
+    /* CERTIFICATE - grid */
+    .grid {
+        margin-left: 0.5rem !important;
+        margin-right: 0.5rem !important;
+        gap: 0.75rem !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    /* CERTIFICATE - card */
+    .group.bg-gray-800\/50 {
+        padding: 0.75rem !important;
+        border-radius: 1rem !important;
+    }
+
+    /* CERTIFICATE - card image */
+    .aspect-\[4\/3\] {
+        border-radius: 0.5rem !important;
+    }
+
+    /* CERTIFICATE - card title */
+    .group h3 {
+        font-size: 0.9rem !important;
+    }
+
+    /* CERTIFICATE - card desc & meta */
+    .line-clamp-2 {
+        font-size: 0.7rem !important;
+    }
+
+    /* CERTIFICATE - tech badges */
+    .px-2\.5 {
+        font-size: 0.6rem !important;
+        padding: 0.15rem 0.4rem !important;
+    }
+
+    /* CERTIFICATE - modal */
+    .max-w-lg {
+        max-width: calc(100vw - 1rem) !important;
+        border-radius: 1rem !important;
+    }
+
+    /* CERTIFICATE - modal detail padding */
+    .p-6 {
+        padding: 1rem !important;
+    }
+
+    /* CERTIFICATE - modal title */
+    .text-xl {
+        font-size: 1rem !important;
+    }
+
+    /* CONTACT - section */
+    .py-16.px-4 {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+
+    /* CONTACT - heading */
+    .text-6xl {
+        font-size: 1.5rem !important;
+    }
+    .text-4xl {
+        font-size: 1.375rem !important;
+    }
+
+    /* CONTACT - info items */
+    .w-14 {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+    }
+    .w-14 svg {
+        font-size: 1.125rem !important;
+    }
+
+    /* CONTACT - form container */
+    .bg-gray-800\/50 {
+        padding: 1rem !important;
+        border-radius: 1rem !important;
+    }
+
+    /* CONTACT - form title */
+    .text-3xl {
+        font-size: 1.25rem !important;
+    }
+
+    /* CONTACT - inputs */
+    input, textarea {
+        font-size: 0.8rem !important;
+        padding: 0.625rem 0.75rem !important;
+    }
+
+    /* CONTACT - submit button */
+    .from-blue-600 {
+        padding: 0.625rem 1.5rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* FOOTER */
+    footer {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    /* FOOTER - title */
+    footer h3 {
+        font-size: 1.25rem !important;
+    }
+
+    /* FOOTER - desc */
+    footer .text-sm {
+        font-size: 0.7rem !important;
+    }
+
+    /* FOOTER - social buttons */
+    footer .w-20 {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+    }
+
+    /* FOOTER - copyright */
+    footer .text-xs {
+        font-size: 0.6rem !important;
+    }
+
+    /* SECTION DIVIDERS */
+    .flex-1.h-px {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Sci social icons */
+    .sci {
+        font-size: 14px;
+        margin: 0 4px;
+    }
+}
+
+/* ============================
+   7. MOBILE EXTRA SMALL (max-width: 360px)
+   ============================ */
+@media (max-width: 360px) {
+    /* TYPOGRAPHY */
+    h1 {
+        font-size: 1.25rem !important;
+        padding-top: 2rem;
+        margin-top: 1rem;
+    }
+    h2 {
+        font-size: 1.125rem !important;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    /* NAVBAR */
+    nav .text-3xl {
+        font-size: 1rem !important;
+    }
+    nav .max-w-7xl {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    /* HERO */
+    section.relative {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 1.5rem;
+    }
+
+    /* HERO - description text */
+    .max-w-2xl {
+        font-size: 0.65rem !important;
+    }
+
+    /* HERO - profile image */
+    .w-35 {
+        width: 5.5rem !important;
+        height: 5.5rem !important;
+    }
+
+    /* HERO - social icons */
+    .w-20 {
+        width: 2.25rem !important;
+        height: 2.25rem !important;
+    }
+    .text-4xl {
+        font-size: 1.125rem !important;
+    }
+
+    /* PROJECT */
+    .mb-16 {
+        margin-bottom: 1.5rem !important;
+    }
+    .timeline-item {
+        gap: 0.75rem !important;
+        margin-bottom: 1.25rem !important;
+    }
+    .timeline-image {
+        height: 8rem !important;
+    }
+
+    /* SKILL */
+    .text-5xl {
+        font-size: 1.25rem !important;
+    }
+    .py-20 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    /* SKILL - pills */
+    .infinite-scroll-left > div,
+    .infinite-scroll-right > div {
+        padding: 0.3rem 0.5rem !important;
+    }
+    .infinite-scroll-left > div span,
+    .infinite-scroll-right > div span {
+        font-size: 0.6rem !important;
+    }
+    .infinite-scroll-left > div .text-2xl,
+    .infinite-scroll-right > div .text-2xl {
+        font-size: 0.8rem !important;
+    }
+
+    /* CERTIFICATE */
+    .grid {
+        margin-left: 0.25rem !important;
+        margin-right: 0.25rem !important;
+        gap: 0.5rem !important;
+    }
+    .group h3 {
+        font-size: 0.8rem !important;
+    }
+    .line-clamp-2 {
+        font-size: 0.6rem !important;
+    }
+
+    /* CERTIFICATE - modal full width */
+    .max-w-lg {
+        max-width: 100vw !important;
+        margin: 0 !important;
+        border-radius: 0.75rem !important;
+    }
+
+    /* CONTACT */
+    .text-6xl {
+        font-size: 1.25rem !important;
+    }
+    input, textarea {
+        font-size: 0.75rem !important;
+        padding: 0.5rem 0.625rem !important;
+    }
+    .from-blue-600 {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.75rem !important;
+    }
+
+    /* FOOTER */
+    footer h3 {
+        font-size: 1rem !important;
+    }
+    footer .text-sm {
+        font-size: 0.6rem !important;
+    }
+    footer .text-xs {
+        font-size: 0.55rem !important;
+    }
+    footer .w-20 {
+        width: 2rem !important;
+        height: 2rem !important;
+    }
+}
+
+/* ============================
+   8. LANDSCAPE MODE ON MOBILE
+   ============================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    /* Navbar tipis */
+    nav .max-w-7xl {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    /* Hero - kurangi padding atas */
+    section.relative {
+        padding-top: 1rem;
+    }
+
+    /* Section dividers */
+    .flex-1.h-px {
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Skill section */
+    .py-20 {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+}
+
+/* ============================
+   9. SCROLL REVEAL EFFECTS
+   ============================ */
+.reveal {
+    opacity: 0;
+    transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-up {
+    transform: translateY(45px);
+}
+
+.reveal-down {
+    transform: translateY(-45px);
+}
+
+.reveal-left {
+    transform: translateX(-45px);
+}
+
+.reveal-right {
+    transform: translateX(45px);
+}
+
+.reveal-scale {
+    transform: scale(0.94);
+}
+
+/* State when active (visible in viewport) */
+.reveal.active {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+/* Stagger delay classes for staggered animation elements */
+.delay-75 { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
